@@ -1,4 +1,5 @@
-package com.singularix.restfulws.base;
+package com.singularix.restfulws.users;
+import com.singularix.restfulws.base.BaseTest;
 import org.junit.jupiter.api.Test;
 
 import io.restassured.http.ContentType;
