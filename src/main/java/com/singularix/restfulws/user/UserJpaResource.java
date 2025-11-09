@@ -1,5 +1,6 @@
 
-/*
+
+
 package com.singularix.restfulws.user;
 
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,7 @@ public class UserJpaResource {
 	public List<User> retrieveAllUsers(){
 		return repository.findAll();
 	}
-	/*		
+	
 	@GetMapping("/jpa/users/{id}")
 	public EntityModel <User> retrieveUserById(@PathVariable int id){
 		Optional<User> user = repository.findById(id);
@@ -74,4 +75,4 @@ public class UserJpaResource {
 		
 	}
 }
-*/
+
