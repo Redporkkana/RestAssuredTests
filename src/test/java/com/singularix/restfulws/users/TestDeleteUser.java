@@ -3,20 +3,15 @@ import com.singularix.restfulws.base.BaseTest;
 import org.junit.jupiter.api.Test;
 
 import io.restassured.http.ContentType;
+import utils.UserDataFactory;
+import utils.UserPayload;
 
 import static io.restassured.RestAssured.given;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.time.LocalDate;
 
 public class TestDeleteUser extends BaseTest {
 	@Test
 	public void shouldReturn404ToVerifyUserDeleted() {
-		Map <String, Object> user = new HashMap<>();
-		
-		user.put("name", "Leo");
-		user.put("birthday", LocalDate.now().minusYears(27));
+		UserPayload user = UserDataFactory.validUser();
 		
 		int id = given()
 					.contentType(ContentType.JSON)

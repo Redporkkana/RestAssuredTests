@@ -3,34 +3,32 @@ import com.singularix.restfulws.base.BaseTest;
 import org.junit.jupiter.api.Test;
 
 import io.restassured.http.ContentType;
+import utils.UserDataFactory;
+import utils.UserPayload;
 
 import static io.restassured.RestAssured.given;
 
-import java.util.Map;
-import java.util.HashMap;
 import java.time.LocalDate;
 
 
 public class TestUpdateUser extends BaseTest {
 	@Test
 	public void shouldReturn200ToVerifyUserUpdate() {
-		Map<String, Object> userPayload = new HashMap<>();
-		userPayload.put("name", "Tom");
-		userPayload.put("birthday", LocalDate.now().minusYears(49));
-		 
+		UserPayload user = UserDataFactory.validUser();
+		
 		int id = given()
 			.contentType(ContentType.JSON)
-			.body(userPayload)
+			.body(user)
 		.when()
 			.post("/users")
 		.then()
 			.extract().path("id");
 		
-		userPayload.put("name", "Thomas");
-		userPayload.put("birthday", LocalDate.now().minusYears(49));
+		user.setName("Thomas");
+		user.setBirthday(LocalDate.now().minusMonths(1000));
 		
 		given()
-			.contentType(ContentType.JSON).body(userPayload)
+			.contentType(ContentType.JSON).body(user)
 		.when()
 			.put("/users/"+id)
 		.then()

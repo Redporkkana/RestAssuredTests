@@ -1,50 +1,19 @@
-package com.singularix.restfulws.user;
+package utils;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Size;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 
-@Entity(name="user_details")
-public class User {
-	private Integer id;
-	
-	@Size(min=2)
+public class UserPayload {
 	private String name;
-	
 	@Past
 	private LocalDate birthday;
-	
 	@Email
 	private String email;
-	
 	private char[] password;
 	
-	protected User () {
-		
-	}
-	public User(Integer id, String name, LocalDate birthday, String email, char[] password) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.birthday = birthday;
-		this.email = email;
-		this.password = password;
-	}
-	
-	@Id
-	@GeneratedValue
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
 	public String getName() {
 		return name;
 	}
@@ -72,11 +41,4 @@ public class User {
 	public char[] getPassword() {
 	    return Arrays.copyOf(password, password.length);
 	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", birthday=" + birthday + "]";
-	}
-	
-	
 }
