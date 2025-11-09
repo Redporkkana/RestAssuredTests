@@ -1,5 +1,7 @@
 package com.singularix.restfulws.users;
 import com.singularix.restfulws.base.BaseTest;
+
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import io.restassured.http.ContentType;
@@ -10,6 +12,7 @@ import static io.restassured.RestAssured.given;
 
 public class TestDeleteUser extends BaseTest {
 	@Test
+	@Tag("regression")
 	public void shouldReturn404ToVerifyUserDeleted() {
 		UserPayload user = UserDataFactory.validUser();
 		

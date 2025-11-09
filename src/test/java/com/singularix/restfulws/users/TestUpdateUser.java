@@ -1,5 +1,7 @@
 package com.singularix.restfulws.users;
 import com.singularix.restfulws.base.BaseTest;
+
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import io.restassured.http.ContentType;
@@ -13,6 +15,7 @@ import java.time.LocalDate;
 
 public class TestUpdateUser extends BaseTest {
 	@Test
+	@Tag("regression")
 	public void shouldReturn200ToVerifyUserUpdate() {
 		UserPayload user = UserDataFactory.validUser();
 		
