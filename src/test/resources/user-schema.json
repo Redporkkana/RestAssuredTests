@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {"type": "integer"},
+    "name": {"type": "string"},
+    "birthday": {"type": ["string", "null"], "format": "date"},
+    "email": {"type": ["string", "null"], "format": "email"},
+    "password": {"type": "string"}
+  },
+  "required": ["id", "name", "email", "password"]
+}

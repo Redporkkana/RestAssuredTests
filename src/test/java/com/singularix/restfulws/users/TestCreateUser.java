@@ -6,6 +6,7 @@ import io.restassured.http.ContentType;
 import utils.UserDataFactory;
 import utils.UserPayload;
 
+import static io.restassured.RestAssured.given;
 import io.restassured.response.Response;
 
 public class TestCreateUser extends BaseTest {
@@ -14,9 +15,9 @@ public class TestCreateUser extends BaseTest {
 	
 		UserPayload user = UserDataFactory.validUser();
 		Response response = requestSpec
+		
 			.contentType(ContentType.JSON)
 			.body(user)
-		.when()
 			.post("/users");
 		response.then()
 			.statusCode(201)
