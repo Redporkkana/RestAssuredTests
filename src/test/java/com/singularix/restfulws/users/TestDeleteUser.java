@@ -8,34 +8,31 @@ import io.restassured.http.ContentType;
 import utils.UserDataFactory;
 import utils.UserPayload;
 
-import static io.restassured.RestAssured.given;
+import io.restassured.response.Response;
 
 public class TestDeleteUser extends BaseTest {
 	@Test
 	@Tag("regression")
 	public void shouldReturn404ToVerifyUserDeleted() {
 		UserPayload user = UserDataFactory.validUser();
-		
-		int id = given()
-					.contentType(ContentType.JSON)
-					.body(user)
-				.when()
-					.post("/users")
+		Response response1 = requestSpec
+				.contentType(ContentType.JSON)
+				.body(user)
+				.post("/users");
+				
+		int id = response1	
 				.then()
 					.extract().path("id");
 		
-		given()
-			.contentType(ContentType.JSON)
-		.when()
-			.delete("/users/"+id)
-		.then()
+		Response response2 = requestSpec
+			.delete("/users/"+id);
+		
+		response2.then()
 			.statusCode(200);
 		
-		given()
-			.contentType(ContentType.JSON)
-		.when()
-			.get("/users/"+id)
-		.then()
+		Response response3 = requestSpec
+			.get("/users/"+id);
+		response3.then()
 			.statusCode(404);
 	}	
 	

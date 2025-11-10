@@ -6,20 +6,19 @@ import io.restassured.http.ContentType;
 import utils.UserDataFactory;
 import utils.UserPayload;
 
-import static io.restassured.RestAssured.given;
+import io.restassured.response.Response;
 
 public class TestCreateUser extends BaseTest {
 	@Test
 	public void shouldReturn201AndValidBody() {
 	
 		UserPayload user = UserDataFactory.validUser();
-		
-		given()
+		Response response = requestSpec
 			.contentType(ContentType.JSON)
 			.body(user)
 		.when()
-			.post("/users")
-		.then()
+			.post("/users");
+		response.then()
 			.statusCode(201)
 			.log().all();
 	}

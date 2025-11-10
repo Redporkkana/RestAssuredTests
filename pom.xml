@@ -55,7 +55,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
-    <dependency>
+   <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-security</artifactId>
     </dependency>
@@ -93,14 +93,12 @@
         </exclusions>
     </dependency>
 
-    <!-- REST ASSURED for API testing -->
     <dependency>
         <groupId>io.rest-assured</groupId>
         <artifactId>rest-assured</artifactId>
         <scope>test</scope>
     </dependency>
 
-    <!-- Optionally: JSON path and XML validation support -->
     <dependency>
         <groupId>io.rest-assured</groupId>
         <artifactId>json-path</artifactId>
@@ -112,6 +110,21 @@
         <artifactId>xml-path</artifactId>
         <scope>test</scope>
     </dependency>
+    
+     <!-- REPORTING DEPENDENCIES -->
+    <dependency>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-junit5</artifactId>
+        <version>2.29.0</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>io.qameta.allure</groupId>
+    	<artifactId>allure-rest-assured</artifactId>
+    	<version>2.29.0</version>
+   		 <scope>test</scope>
+	</dependency>
+
 </dependencies>
 
 

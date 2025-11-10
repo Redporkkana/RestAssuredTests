@@ -1,0 +1,32 @@
+<div>POST to http://localhost:60597/users</div>
+
+    <h4>Body</h4>
+    <div>
+    <pre class="preformated-text">
+{
+    &quot;name&quot;: &quot;TestUser_5f82bb88-d8b1-4502-ba3c-a0e4c657bb1c&quot;,
+    &quot;birthday&quot;: null,
+    &quot;email&quot;: &quot;5f82bb88-d8b1-4502-ba3c-a0e4c657bb1c@example.com&quot;,
+    &quot;password&quot;: &quot;Strong123!&quot;
+}    </pre>
+    </div>
+
+    <h4>Headers</h4>
+    <div>
+            <div>Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=</div>
+            <div>Accept: */*</div>
+            <div>Content-Type: application/json</div>
+    </div>
+
+
+
+    <h4>Curl</h4>
+    <div>
+        curl -v -X POST &#39;http://localhost:60597/users&#39; -H &#39;Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=&#39; -H &#39;Accept: */*&#39; -H &#39;Content-Type: application/json&#39; -d &#39;{
+    &quot;name&quot;: &quot;TestUser_5f82bb88-d8b1-4502-ba3c-a0e4c657bb1c&quot;,
+    &quot;birthday&quot;: null,
+    &quot;email&quot;: &quot;5f82bb88-d8b1-4502-ba3c-a0e4c657bb1c@example.com&quot;,
+    &quot;password&quot;: &quot;Strong123!&quot;
+}&#39;
+    </div>
+
